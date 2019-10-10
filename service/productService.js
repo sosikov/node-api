@@ -1,5 +1,6 @@
 const Product = require('../database/models/productModel');
-const { formatMongoData } = require('../helper/dbHelper');
+const { formatMongoData, checkObjectId } = require('../helper/dbHelper');
+const constants = require('../constants');
 
 module.exports.createProduct = async (serviceData) => {
   try {
@@ -18,6 +19,20 @@ module.exports.getAllProducts = async ({ skip = 0, limit = 10 }) => {
     return formatMongoData(products);
   } catch (error) {
     console.log(`Something went wrong: Service: getAllProducts`, error);
+    throw new Error(error);
+  }
+}
+
+module.exports.getProductById = async ({ id }) => {
+  try {
+    checkObjectId(id);
+    let product = await Product.findById(id);
+    if (!product) {
+      throw new Error(constants.productMessage.PRODUCT_NOT_FOUND);
+    }
+    return formatMongoData(product);
+  } catch (error) {
+    console.log(`Something went wrong: Service: getProductById`, error);
     throw new Error(error);
   }
 }
