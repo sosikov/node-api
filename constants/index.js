@@ -19,7 +19,8 @@ module.exports = {
     INVALID_PASSWORD: 'Invalid Password'
   },
   requestValidationMessage: {
-    BAD_REQUEST: 'Invalid fields'
+    BAD_REQUEST: 'Invalid fields',
+    TOKEN_MISSING: 'Token Missing From Header'
   },
   databaseMessages: {
     INVALID_ID: 'Invalid id'
