@@ -13,7 +13,10 @@ module.exports = {
   },
   userMessage: {
     SIGNUP_SUCCESS: 'Signup Success',
-    DUPLICATE_EMAIL: 'Duplicate Email'
+    LOGIN_SUCCESS: 'Login Success',
+    DUPLICATE_EMAIL: 'Duplicate Email',
+    USER_NOT_FOUND: 'User Not Found',
+    INVALID_PASSWORD: 'Invalid Password'
   },
   requestValidationMessage: {
     BAD_REQUEST: 'Invalid fields'
